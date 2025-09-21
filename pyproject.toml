@@ -1,0 +1,25 @@
+[project]
+name = "hac-analysis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Stephen Young", email = "sx4_young@laurentian.ca" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "coolprop>=6.8.0",
+    "pandas>=2.3.0",
+    "pyodbc>=5.2.0",
+    "python-dotenv>=1.1.1",
+    "sqlalchemy>=2.0.41",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]
