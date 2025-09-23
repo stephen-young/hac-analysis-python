@@ -1,0 +1,100 @@
+{
+    "name": "HAC_DATA",
+    "driver": "{ODBC Driver 17 for SQL Server}",
+    "location": "localhost\\SQLEXPRESS",
+    "current_db": "HAC4",
+    "current_table": "Oct23rd2019",
+    "trusted_connection": "yes",
+    "tables": [
+        {
+            "database": "HAC",
+            "name": "June26thTest",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2017-06-26 14:39:49.440",
+            "end": "2017-08-31 16:51:42.927"
+        },
+        {
+            "database": "HAC",
+            "name": "Sept1st2017",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2017-09-01 08:09:21.580",
+            "end": "2017-09-18 17:30:23.113"
+        },
+        {
+            "database": "HAC",
+            "name": "Sept19th2017",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2017-09-19 10:30:05.610",
+            "end": "2017-11-13 13:42:17.837"
+        },
+        {
+            "database": "HAC",
+            "name": "Nov13th2017",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2017-11-13 13:43:37.633",
+            "end": "2018-02-08 08:06:14.927"
+        },
+        {
+            "database": "HAC",
+            "name": "Feb8th2018",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2018-02-08 08:06:29.163",
+            "end": "2018-02-27 08:37:18.713"
+        },
+        {
+            "database": "HAC2",
+            "name": "Feb27th2018",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2018-02-27 09:00:52.407",
+            "end": "2018-03-13 08:00:54.997"
+        },
+        {
+            "database": "HAC2",
+            "name": "March13th2018",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2018-03-13 08:03:41.173",
+            "end": "2018-03-27 12:50:37.787"
+        },
+        {
+            "database": "HAC2",
+            "name": "March27th2018",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2018-03-27 12:55:14.813",
+            "end": "2018-08-03 14:41:02.670"
+        },
+        {
+            "database": "HAC3",
+            "name": "Aug3rd2018",
+            "tags": "TagItemID",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2018-08-03 14:47:16.520",
+            "end": "2019-10-06 03:13:35.367"
+        },
+        {
+            "database": "HAC4",
+            "name": "Oct23rd2019",
+            "tags": "TagName",
+            "times": "TagTimestamp",
+            "values": "TagValue",
+            "start": "2019-10-23 15:52:58.047",
+            "end": "2019-11-05 14:02:10.820"
+        }
+    ]
+}

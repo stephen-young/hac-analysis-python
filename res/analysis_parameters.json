@@ -1,0 +1,559 @@
+[
+    {
+        "tag": "SpeedACT1Rads",
+        "description": "Actual rotational speed of motor 1 shaft in radians per second",
+        "units": "rad/s",
+        "dependency": [
+            "SpeedACT1"
+        ]
+    },
+    {
+        "tag": "SpeedACT2Rads",
+        "description": "Actual rotational speed of motor 2 shaft in radians per second",
+        "units": "rad/s",
+        "dependency": [
+            "SpeedACT1"
+        ]
+    },
+    {
+        "tag": "SpeedREF1Rads",
+        "description": "Set rotational speed of motor 1 shaft in radians per second",
+        "units": "rad/s",
+        "dependency": [
+            "SpeedREF1"
+        ]
+    },
+    {
+        "tag": "SpeedREF2Rads",
+        "description": "Set rotational speed of motor 2 shaft in radians per second",
+        "units": "rad/s",
+        "dependency": [
+            "SpeedREF2"
+        ]
+    },
+    {
+        "tag": "TorqAct1",
+        "description": "Actual motor 1 shaft torque reported by VFD in Newton-metres",
+        "units": "N m",
+        "dependency": [
+            "TorqPerc1"
+        ]
+    },
+    {
+        "tag": "TorqAct2",
+        "description": "Actual motor 2 shaft torque reported by VFD in Newton-metres",
+        "units": "N m",
+        "dependency": [
+            "TorqPerc2"
+        ]
+    },
+    {
+        "tag": "LT1Elev",
+        "description": "Elevation of water level in the forebay tank measured by LT1",
+        "units": "mAD",
+        "dependency": [
+            "LT1"
+        ]
+    },
+    {
+        "tag": "LT2Elev",
+        "description": "Elevation of water level in the tailrace tank measured by LT2",
+        "units": "mAD",
+        "dependency": [
+            "LT2"
+        ]
+    },
+    {
+        "tag": "LT3Elev",
+        "description": "Elevation of water level in the separator tank measured by LT3",
+        "units": "mAD",
+        "dependency": [
+            "LT3"
+        ]
+    },
+    {
+        "tag": "DPT1Baro",
+        "description": "Barometric pressure elevation corrected for DPT1 elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "DPT2Baro",
+        "description": "Barometric pressure elevation corrected for DPT2 elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "FT5Baro",
+        "description": "Barometric pressure elevation corrected for FT5 elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "PresP1SucBaro",
+        "description": "Barometric pressure elevation corrected for PresP1Suc elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "PresP2SucBaro",
+        "description": "Barometric pressure elevation corrected for PresP2Suc elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "PresP1DisBaro",
+        "description": "Barometric pressure elevation corrected for PresP1Dis elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "PresP2DisBaro",
+        "description": "Barometric pressure elevation corrected for PresP2Dis elevation",
+        "units": "kPa",
+        "dependency": [
+            "PT17"
+        ]
+    },
+    {
+        "tag": "DPT1Abs",
+        "description": "DPT1 measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "DPT1",
+            "DPT1Baro"
+        ]
+    },
+    {
+        "tag": "DPT2Abs",
+        "description": "DPT2 measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "DPT2",
+            "DPT2Baro"
+        ]
+    },
+    {
+        "tag": "DPT3Abs",
+        "description": "DPT3 measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "DPT1",
+            "DPT3",
+            "DPT1Baro"
+        ]
+    },
+    {
+        "tag": "PresP1SucAbs",
+        "description": "PresP1Suc measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "PresP1Suc",
+            "PresP1SucBaro"
+        ]
+    },
+    {
+        "tag": "PresP1DisAbs",
+        "description": "PresP1Dis measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "PresP1Dis",
+            "PresP1DisBaro"
+        ]
+    },
+    {
+        "tag": "PresP2SucAbs",
+        "description": "PresP2Suc measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "PresP2Suc",
+            "PresP2SucBaro"
+        ]
+    },
+    {
+        "tag": "PresP2DisAbs",
+        "description": "PresP2Dis measurement in absolute pressure terms",
+        "units": "kPa",
+        "dependency": [
+            "PresP2Dis",
+            "PresP2DisBaro"
+        ]
+    },
+    {
+        "tag": "FT5Vol",
+        "description": "FT5 measurement in volumetric flow rate terms",
+        "units": "m3/s",
+        "dependency": [
+            "FT5"
+        ]
+    },
+    {
+        "tag": "FT5Mass",
+        "description": "FT5 measurement in mass flow rate terms",
+        "units": "kg/s",
+        "dependency": [
+            "FT5Vol",
+            "TT1",
+            "GT1"
+        ]
+    },
+    {
+        "tag": "AirProd",
+        "description": "Air productivity of HAC",
+        "units": "",
+        "dependency": [
+            "FT5Mass",
+            "FT4"
+        ]
+    },
+    {
+        "tag": "FAD",
+        "description": "Free air delivery of the HAC",
+        "units": "scfm",
+        "dependency": [
+            "FT4"
+        ]
+    },
+    {
+        "tag": "TotalWaterFlow",
+        "description": "Total volumetric flow rate of circulating water in HAC",
+        "units": "m3/s",
+        "dependency": [
+            "FT1",
+            "FT2"
+        ]
+    },
+    {
+        "tag": "LT_DPT2Elev",
+        "description": "Tailrace water level elevation from DPT2",
+        "units": "mAD",
+        "dependency": [
+            "TempDBot",
+            "DPT2Abs",
+            "TotalWaterFlow",
+            "LT3Elev"
+        ]
+    },
+    {
+        "tag": "LT_DPT2",
+        "description": "Tailrace water level from DPT2",
+        "units": "m",
+        "dependency": [
+            "LT_DPT2Elev"
+        ]
+    },
+    {
+        "tag": "TempP1Rise",
+        "description": "Temperature rise across pump 1",
+        "units": "mK",
+        "dependency": [
+            "TempP1Suc",
+            "TempP1Dis"
+        ]
+    },
+    {
+        "tag": "TempP2Rise",
+        "description": "Temperature rise across pump 2",
+        "units": "mK",
+        "dependency": [
+            "TempP2Suc",
+            "TempP2Dis"
+        ]
+    },
+    {
+        "tag": "TempDRise",
+        "description": "Temperature rise across downcomer",
+        "units": "mK",
+        "dependency": [
+            "TempDTop",
+            "TempDBot"
+        ]
+    },
+    {
+        "tag": "PresP1Diff",
+        "description": "Pressure difference across pump 1",
+        "units": "mK",
+        "dependency": [
+            "PresP1Suc",
+            "PresP1Dis"
+        ]
+    },
+    {
+        "tag": "PresP2Diff",
+        "description": "Pressure difference across pump 2",
+        "units": "mK",
+        "dependency": [
+            "PresP2Suc",
+            "PresP2Dis"
+        ]
+    },
+    {
+        "tag": "Head",
+        "description": "Driving head of the HAC",
+        "units": "m",
+        "dependency": [
+            "LT1Elev",
+            "LT2Elev",
+            "LT_DPT2Elev"
+        ]
+    },
+    {
+        "tag": "PowerTot",
+        "description": "Total electrical power delivered to run HAC",
+        "units": "kW",
+        "dependency": [
+            "Power1",
+            "Power2"
+        ]
+    },
+    {
+        "tag": "VFDPowerTot",
+        "description": "Electrical power delivered by VFD to motors",
+        "units": "kW",
+        "dependency": [
+            "VFDPower1",
+            "VFDPower2"
+        ]
+    },
+    {
+        "tag": "ShaftPower1",
+        "description": "Shaft power delivered by motor 1",
+        "units": "kW",
+        "dependency": [
+            "SpeedACT1",
+            "TorqAct1"
+        ]
+    },
+    {
+        "tag": "ShaftPower2",
+        "description": "Shaft power delivered by motor 2",
+        "units": "kW",
+        "dependency": [
+            "SpeedACT2",
+            "TorqAct2"
+        ]
+    },
+    {
+        "tag": "ShaftPowerTot",
+        "description": "Total shaft power delivered by motors",
+        "units": "kW",
+        "dependency": [
+            "ShaftPower1",
+            "ShaftPower2"
+        ]
+    },
+    {
+        "tag": "FluidPower1",
+        "description": "Fluid power delivered by pump 1",
+        "units": "kW",
+        "dependency": [
+            "FT1",
+            "PresP1Diff"
+        ]
+    },
+    {
+        "tag": "FluidPower2",
+        "description": "Fluid power delivered by pump 2",
+        "units": "kW",
+        "dependency": [
+            "FT2",
+            "PresP2Diff"
+        ]
+    },
+    {
+        "tag": "FluidPowerTot",
+        "description": "Total fluid power delivered by pumps",
+        "units": "kW",
+        "dependency": [
+            "FluidPower1",
+            "FluidPower2"
+        ]
+    },
+    {
+        "tag": "HydroWork",
+        "description": "Mass specific energy of input hydropower",
+        "units": "J/kg",
+        "dependency": [
+            "Head"
+        ]
+    },
+    {
+        "tag": "HydroPower",
+        "description": "Input hydropower to HAC",
+        "units": "kW",
+        "dependency": [
+            "Head",
+            "TotalWaterFlow"
+        ]
+    },
+    {
+        "tag": "FlowWork",
+        "description": "Flow work applied to compressed gas",
+        "units": "J/kg",
+        "dependency": [
+            "DPT1Abs",
+            "DPT2Abs",
+            "TempDTop",
+            "TempDBot"
+        ]
+    },
+    {
+        "tag": "PneumaticPower",
+        "description": "Pneumatic power of compressed air delivered by HAC",
+        "units": "kW",
+        "dependency": [
+            "FlowWork",
+            "FT4"
+        ]
+    },
+    {
+        "tag": "PumpThermoEff1",
+        "description": "Efficiency of pump 1 evaluated through the thermodynamic method",
+        "units": "%",
+        "dependency": [
+            "PresP1SucAbs",
+            "PresP1DisAbs",
+            "TempP1Suc",
+            "TempP1Dis"
+        ]
+    },
+    {
+        "tag": "PumpThermoEff2",
+        "description": "Efficiency of pump 2 evaluated through the thermodynamic method",
+        "units": "%",
+        "dependency": [
+            "PresP2SucAbs",
+            "PresP2DisAbs",
+            "TempP2Suc",
+            "TempP2Dis"
+        ]
+    },
+    {
+        "tag": "VFDEff1",
+        "description": "Efficiency of VFD 1",
+        "units": "%",
+        "dependency": [
+            "Power1",
+            "VFDPower1"
+        ]
+    },
+    {
+        "tag": "VFDEff2",
+        "description": "Efficiency of VFD 2",
+        "units": "%",
+        "dependency": [
+            "Power2",
+            "VFDPower2"
+        ]
+    },
+    {
+        "tag": "VFDEffTot",
+        "description": "Overall efficiency of VFDs",
+        "units": "%",
+        "dependency": [
+            "PowerTot",
+            "VFDPowerTot"
+        ]
+    },
+    {
+        "tag": "MotorEff1",
+        "description": "Efficiency of motor 1",
+        "units": "%",
+        "dependency": [
+            "VFDPower1",
+            "ShaftPower1"
+        ]
+    },
+    {
+        "tag": "MotorEff2",
+        "description": "Efficiency of motor 2",
+        "units": "%",
+        "dependency": [
+            "VFDPower2",
+            "ShaftPower1"
+        ]
+    },
+    {
+        "tag": "MotorEffTot",
+        "description": "Overall efficiency of motors",
+        "units": "%",
+        "dependency": [
+            "VFDPowerTot",
+            "ShaftPowerTot"
+        ]
+    },
+    {
+        "tag": "PumpEff1",
+        "description": "Efficiency of pump 1",
+        "units": "%",
+        "dependency": [
+            "ShaftPower1",
+            "FluidPower1"
+        ]
+    },
+    {
+        "tag": "PumpEff2",
+        "description": "Efficiency of pump 2",
+        "units": "%",
+        "dependency": [
+            "ShaftPower2",
+            "FluidPower2"
+        ]
+    },
+    {
+        "tag": "PumpEffTot",
+        "description": "Overall efficiency of pumps",
+        "units": "%",
+        "dependency": [
+            "ShaftPowerTot",
+            "FluidPowerTot"
+        ]
+    },
+    {
+        "tag": "HydroEff",
+        "description": "Efficiency of conversion of fluid power to hydropower",
+        "units": "%",
+        "dependency": [
+            "FluidPowerTot",
+            "HydroPower"
+        ]
+    },
+    {
+        "tag": "HACEff",
+        "description": "Compression efficiency of the HAC",
+        "units": "%",
+        "dependency": [
+            "FlowWork",
+            "TotalWaterFlow",
+            "PresP1SucAbs",
+            "TempDBot",
+            "FT5Mass"
+        ]
+    },
+    {
+        "tag": "OverallEff",
+        "description": "Overall, wire-to-air, efficiency of the HAC",
+        "units": "%",
+        "dependency":[
+            "PowerTot",
+            "PneumaticPower",
+            "VFDEFff",
+            "MotorEffTot",
+            "PumpEffTot",
+            "HydroEff",
+            "HACEff"
+        ]
+    }
+],

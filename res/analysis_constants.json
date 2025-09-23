@@ -1,0 +1,64 @@
+{
+    "gravity": 9.80665,
+    "standard_air_density": 1.2039,
+    "barometer_correction_density": 1.2085,
+    "specific_gas_constant": 287.056,
+    "datetime_format": "yyyy-MM-dd HH:mm:ss.SSS",
+    "timestamp_format": "yyyy-MM-dd hh:mm:ss a",
+    "time_zone": "America/Toronto",
+    "FT5_diameter": 0.09717,
+    "FT5_calibration_coeff": 1.025,
+    "FT5_averaging": 15,
+    "pump_data": [
+        {
+            "flow": "FT1",
+            "discharge": {
+                "diameter": 0.59055,
+                "pressure": "PresP1Dis",
+                "temperature": "TempP1Dis"
+            },
+            "suction": {
+                "diameter": 0.3048,
+                "pressure": "PresP1Suc",
+                "temperature": "TempP1Suc"
+            }
+        },
+        {
+            "flow": "FT2",
+            "discharge": {
+                "diameter": 0.3048,
+                "pressure": "PresP2Dis",
+                "temperature": "TempP2Dis"
+            },
+            "suction": {
+                "diameter": 0.3048,
+                "pressure": "PresP2Suc",
+                "temperature": "TempP2Suc"
+            }
+        }
+    ],
+    "riser_lined_diameter": 0.5619,
+    "riser_unlined_diameter": 0.5746,
+    "riser_lined_length": 23.301,
+    "riser_unlined_length": 3.704,
+    "riser_lined_roughness": 5.80e-5,
+    "riser_unlined_roughness": 4.50e-5,
+    "riser_minor_loss_coeff": 2.1600,
+    "nominal_torque": 202.705,
+    "transient_offset": 180,
+    "elev_top_surge": 300.848,
+    "elev_inline_mix": 299.279,
+    "elev_LT1_min": 298.470,
+    "elev_LT2_max": 295.313,
+    "elev_tol": 5e-3,
+    "bar_to_pa": 1e5,
+    "bar_to_kpa": 1e2,
+    "pa_to_kpa": 1e-3,
+    "kpa_to_pa": 1e3,
+    "w_to_kw": 1e-3,
+    "kw_to_w": 1e-3,
+    "k_to_mk": 1e3,
+    "c_to_k": 273.15,
+    "dec_to_perc": 1e2,
+    "perc_to_dec": 1e-2
+}
