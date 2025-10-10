@@ -7,7 +7,10 @@ Demonstrator facility.
 ## To-do list
 
 - [x] Add ability to connect to SQL database
-- [ ] Add SQL database querying
+- [x] Add SQL database querying
+- [ ] Preprocessing of TT/GT signal
+- [ ] Processing of instrumentation data
+- [ ] Add analysis of benchmark test
 - [ ] Add means of processing raw data from `csv` file
 - [ ] Add CLI for main function
 
