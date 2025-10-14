@@ -8,6 +8,7 @@ Demonstrator facility.
 
 - [x] Add ability to connect to SQL database
 - [x] Add SQL database querying
+- [ ] Config and metadata mangement
 - [ ] Preprocessing of TT/GT signal
 - [ ] Processing of instrumentation data
 - [ ] Add analysis of benchmark test
