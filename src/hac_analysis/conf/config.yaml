@@ -1,7 +1,7 @@
 paths:
   metadata_dir: ./res
 metadata:
-  benchmark: benchmark_index.json
+  benchmark: benchmark_test_index.json
   calibration: calibration_constants.json
   constants: analysis_constants.json
   database: database.json
