@@ -8,6 +8,9 @@ from datetime import datetime
 
 def handle_variant(var):
     if type(var) is bytes:
+        # Database column with variant type contains numeric types
+        # (i.e., floats and ints) and the integer values are read
+        # as bytes by the database engine.
         var = int.from_bytes(var, "little")
     return var
 
@@ -29,51 +32,37 @@ def disconnect(conn: pyodbc.Connection):
     conn.close()
 
 
-def query(conn: pyodbc.Connection, sql: str):
+def query(conn: pyodbc.Connection, sql: str, params: tuple):
     cursor = conn.cursor()
-    cursor.execute(sql)
+    cursor.execute(sql, params)
 
     return cursor.fetchall()
 
 
-TAG_QUERY = """
-        SELECT DISTINCT({})
-        FROM {}.dbo.{}
-        WHERE TagTimestamp > '{}' AND TagTimestamp < '{}'
-    """
+# NOTE: Because the expectation is for the HAC database to be running locally
+# and not connecting to a centralized database, f-strings are used for poducing
+# the SQL query despite the potential for SQL injection with malicious input
+# to the functions. This is mitigated some by parameterizing the timestamp
+# conditions.
 
 
 def query_tag_list(
     conn: pyodbc.Connection, table_info: dict, start_time: datetime, end_time: datetime
 ) -> list[pyodbc.Row]:
-    tag_col = table_info["tags"]
-    db_name = table_info["database"]
-    table_name = table_info["name"]
-
-    sql = TAG_QUERY.format(tag_col, db_name, table_name, start_time, end_time)
-    data = query(conn, sql)
-
+    tag = table_info["tags"]
+    db = table_info["database"]
+    tab = table_info["name"]
+    sql = f"SELECT DISTINCT {tag} FROM {db}.dbo.{tab} WHERE TagTimestamp >= ? AND TagTimestamp <= ?"
+    data = query(conn, sql, (start_time, end_time))
     return data
 
 
-INSTR_QUERY = """
-        SELECT {}, {}, {}
-        FROM {}.dbo.{}
-        WHERE TagTimestamp > '{}' AND TagTimestamp < '{}'
-    """
-
-
 def query_instrument_data(
-    conn: pyodbc.Connection, db_info: dict, start_time: datetime, end_time: datetime
+    conn: pyodbc.Connection, table_info: dict, start_time: datetime, end_time: datetime
 ) -> list[pyodbc.Row]:
-    db_name = db_info["database"]
-    table_name = db_info["name"]
-    tag_col = db_info["tags"]
-    value_col = db_info["values"]
-    time_col = db_info["times"]
-    sql = INSTR_QUERY.format(
-        time_col, tag_col, value_col, db_name, table_name, start_time, end_time
-    )
-    data = query(conn, sql)
-
+    tag = table_info["tags"]
+    db = table_info["database"]
+    tab = table_info["name"]
+    sql = f"SELECT TagTimestamp, {tag}, TagValue FROM {db}.dbo.{tab} WHERE TagTimestamp >= ? AND TagTimestamp <= ?"
+    data = query(conn, sql, (start_time, end_time))
     return data

@@ -29,7 +29,6 @@ def test_query_tag_list():
     end_time = datetime.fromisoformat("2018-01-29 11:55:49")
 
     result = db.query_tag_list(conn, table_info, start_time, end_time)
-    want = "Power metering.CVM2.U_12"
 
     want = [
         ("Power metering.CVM2.U_12",),
@@ -89,6 +88,7 @@ def test_query_tag_list():
         ("Analogue Inputs.I/O-1.DPT-3",),
     ]
 
+    assert len(result) == len(want)
     assert all([x[0] == y[0] for x, y in zip(result, want)])
 
 
