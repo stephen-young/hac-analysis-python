@@ -1,6 +1,6 @@
 {
     "name": "HAC_DATA",
-    "driver": "{ODBC Driver 17 for SQL Server}",
+    "driver": "ODBC Driver 17 for SQL Server",
     "location": "localhost\\SQLEXPRESS",
     "current_db": "HAC4",
     "current_table": "Oct23rd2019",

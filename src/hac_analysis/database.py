@@ -2,8 +2,9 @@
 
 import pyodbc
 from datetime import datetime
-
-# TODO: Look into converting pyodbc.Row to a pandas.DataFrame
+from pandas import read_sql_query, DataFrame
+from sqlalchemy import create_engine, Connection
+from sqlalchemy.engine import URL
 
 
 def handle_variant(var):
@@ -15,15 +16,20 @@ def handle_variant(var):
     return var
 
 
-def connect(db_info: dict) -> pyodbc.Connection:
+def connect(db_info: dict) -> Connection:
     # NOTE: Use of `Trusted_Connection` may only work on Windows
-    conn = pyodbc.connect(
-        driver=db_info["driver"],
-        server=db_info["location"],
+    connection_url = URL.create(
+        "mssql+pyodbc",
+        host=db_info["location"],
         database=db_info["current_db"],
-        Trusted_Connection=db_info["trusted_connection"],
+        query={
+            "TrustedConnection": db_info["trusted_connection"],
+            "driver": db_info["driver"],
+        },
     )
-    conn.add_output_converter(-16, handle_variant)
+    engine = create_engine(connection_url)
+    conn = engine.connect()
+    conn.connection.add_output_converter(-16, handle_variant)
 
     return conn
 
@@ -32,11 +38,9 @@ def disconnect(conn: pyodbc.Connection):
     conn.close()
 
 
-def query(conn: pyodbc.Connection, sql: str, params: tuple):
-    cursor = conn.cursor()
-    cursor.execute(sql, params)
-
-    return cursor.fetchall()
+def query(conn: Connection, sql: str, params: tuple) -> DataFrame:
+    result = read_sql_query(sql, conn, params=params)
+    return result
 
 
 # NOTE: Because the expectation is for the HAC database to be running locally
@@ -47,8 +51,8 @@ def query(conn: pyodbc.Connection, sql: str, params: tuple):
 
 
 def query_tag_list(
-    conn: pyodbc.Connection, table_info: dict, start_time: datetime, end_time: datetime
-) -> list[pyodbc.Row]:
+    conn: Connection, table_info: dict, start_time: datetime, end_time: datetime
+) -> DataFrame:
     tag = table_info["tags"]
     db = table_info["database"]
     tab = table_info["name"]
@@ -58,8 +62,8 @@ def query_tag_list(
 
 
 def query_instrument_data(
-    conn: pyodbc.Connection, table_info: dict, start_time: datetime, end_time: datetime
-) -> list[pyodbc.Row]:
+    conn: Connection, table_info: dict, start_time: datetime, end_time: datetime
+) -> DataFrame:
     tag = table_info["tags"]
     db = table_info["database"]
     tab = table_info["name"]
