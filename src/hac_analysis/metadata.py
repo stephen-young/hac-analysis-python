@@ -30,7 +30,7 @@ def load_metadata(loc: str, names: dict) -> dict:
 
 def load_json_file(file: Path) -> list[dict]:
     if not file.is_file() or not file.exists():
-        raise FileNotFoundError(f"Could not {file.absolute()}")
+        raise FileNotFoundError(f"Could not find {file.absolute()}")
     elif file.suffix != ".json":
         raise ValueError(f"{file.absolute()} is not a json file")
     with open(file, "r") as f:
