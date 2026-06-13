@@ -7,6 +7,11 @@ from sqlalchemy import create_engine, Connection
 from sqlalchemy.engine import URL
 
 
+# NOTE: Pandas `read_sql_query` requires `sqlalchemy` objects
+# and facilitates subsequent analysis by returning query in a
+# `pandas` `DataFrame`
+
+
 def handle_variant(var):
     if type(var) is bytes:
         # Database column with variant type contains numeric types
@@ -38,7 +43,7 @@ def disconnect(conn: pyodbc.Connection):
     conn.close()
 
 
-def query(conn: Connection, sql: str, params: tuple) -> DataFrame:
+def query(conn: Connection, sql: str, params: list) -> DataFrame:
     result = read_sql_query(sql, conn, params=params)
     return result
 
@@ -57,7 +62,7 @@ def query_tag_list(
     db = table_info["database"]
     tab = table_info["name"]
     sql = f"SELECT DISTINCT {tag} FROM {db}.dbo.{tab} WHERE TagTimestamp >= ? AND TagTimestamp <= ?"
-    data = query(conn, sql, (start_time, end_time))
+    data = query(conn, sql, [start_time, end_time])
     return data
 
 
@@ -68,5 +73,6 @@ def query_instrument_data(
     db = table_info["database"]
     tab = table_info["name"]
     sql = f"SELECT TagTimestamp, {tag}, TagValue FROM {db}.dbo.{tab} WHERE TagTimestamp >= ? AND TagTimestamp <= ?"
-    data = query(conn, sql, (start_time, end_time))
+    # TODO: Check if TagTimestamp columns are returned as strings or datetime objects
+    data = query(conn, sql, [start_time, end_time])
     return data
